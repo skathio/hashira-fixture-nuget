@@ -28,7 +28,7 @@ permissions: {}
 
 jobs:
   ci:
-    uses: skathio/hashira/.github/workflows/nuget-package-ci.yml@v3
+    uses: skathio/hashira/.github/workflows/nuget-package-ci.yml@bd274193b8e76b9131799f0def0cc07490f1e32c
     permissions:
       contents: read # check out the repository
       pull-requests: write # coverage comment on the pull request
@@ -66,7 +66,7 @@ jobs:
         with:
           name: nuget-package
           path: ${{ runner.temp }}/nupkg
-      - uses: skathio/hashira/.github/actions/nuget-push@v3
+      - uses: skathio/hashira/.github/actions/nuget-push@bd274193b8e76b9131799f0def0cc07490f1e32c
         id: push
         with:
           nupkg_path: ${{ runner.temp }}/nupkg/*.nupkg
