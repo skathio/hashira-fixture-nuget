@@ -28,10 +28,10 @@ permissions: {}
 
 jobs:
   ci:
-    uses: skathio/hashira/.github/workflows/nuget-package-ci.yml@v3
+    uses: skathio/hashira/.github/workflows/nuget-package-ci.yml@30196b948413ad3d5e2e566ce54678e97227680a
     permissions:
       contents: read # check out the repository
-      pull-requests: write # coverage comment on the pull request
+      pull-requests: write # CI summary comment on the pull request
       security-events: write # upload CodeQL results when CodeQL is enabled
   publish:
     needs: ci
@@ -66,7 +66,7 @@ jobs:
         with:
           name: nuget-package
           path: ${{ runner.temp }}/nupkg
-      - uses: skathio/hashira/.github/actions/nuget-push@v3
+      - uses: skathio/hashira/.github/actions/nuget-push@30196b948413ad3d5e2e566ce54678e97227680a
         id: push
         with:
           nupkg_path: ${{ runner.temp }}/nupkg/*.nupkg
